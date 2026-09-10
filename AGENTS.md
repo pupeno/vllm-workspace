@@ -1,0 +1,16 @@
+# Workspace layout
+
+The project root at `/workspaces/vllm/` is a plain directory containing two
+sibling Git repositories:
+
+- `/workspaces/vllm/vllm/` is the vLLM repository. Run source Git commands,
+  inspect diffs, and make source changes there.
+- `/workspaces/vllm/workspace/` owns the devcontainer configuration,
+  documentation, and local experiments. Experiments live directly in this
+  repository and do not belong to the vLLM repository unless a task explicitly
+  moves the work there.
+
+The `.devcontainer` and `AGENTS.md` entries at the project root are symlinks
+into the workspace repository. Keep the two repositories as siblings; do not
+turn the source checkout into a submodule or nest it inside the workspace
+repository.
