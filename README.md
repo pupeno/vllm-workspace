@@ -1,16 +1,12 @@
 # Pablo's vLLM Contributing Workspace
 
-This repository is Pablo's development workspace for contributing to
-[vLLM](https://github.com/vllm-project/vllm).
+This repository is Pablo's development workspace for contributing to [vLLM](https://github.com/vllm-project/vllm).
 
-It keeps the devcontainer configuration, experiments, and documentation
-together.
+It keeps the devcontainer configuration, experiments, and documentation together.
 
 ## Setup
 
-Complete NVIDIA's
-[host driver and container-toolkit setup](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
-to expose the GPU.
+Complete NVIDIA's [host driver and container-toolkit setup](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html) to expose the GPU.
 
 Clone the workspace and run its setup script:
 
@@ -20,9 +16,7 @@ git clone https://github.com/pupeno/vllm-workspace.git vllm/workspace
 vllm/workspace/setup.sh
 ```
 
-Open the outer `vllm/` directory in an editor with devcontainer support, then
-reopen it in its devcontainer. The post-create setup uses Python 3.12 and
-vLLM's precompiled artifacts for an editable development install.
+Open the outer `vllm/` directory in an editor with devcontainer support, then reopen it in its devcontainer.
 
 ## Common Commands
 
@@ -38,6 +32,13 @@ Serve a model:
 ```bash
 cd /workspaces/vllm/vllm
 vllm serve <model-name>
+```
+
+Install the CUDA test dependencies when you need to run vLLM's test suite:
+
+```bash
+cd /workspaces/vllm/vllm
+uv pip install -r requirements/test/cuda.in
 ```
 
 Run a specific test:

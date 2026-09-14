@@ -46,6 +46,7 @@ echo "==> Configuring the development environment"
 for shell_rc in "$HOME/.bashrc" "$HOME/.zshrc"; do
     grep -qxF 'export CUDA_HOME=/usr/local/cuda' "$shell_rc" || echo 'export CUDA_HOME=/usr/local/cuda' >> "$shell_rc"
     grep -qxF 'export PATH="$CUDA_HOME/bin:$PATH"' "$shell_rc" || echo 'export PATH="$CUDA_HOME/bin:$PATH"' >> "$shell_rc"
+    grep -qxF 'export CUDA_DEVICE_ORDER=PCI_BUS_ID' "$shell_rc" || echo 'export CUDA_DEVICE_ORDER=PCI_BUS_ID' >> "$shell_rc"
     grep -qxF 'export MAX_JOBS=8' "$shell_rc" || echo 'export MAX_JOBS=8' >> "$shell_rc"
     grep -qxF "source $workspace_dir/vllm/.venv/bin/activate" "$shell_rc" || echo "source $workspace_dir/vllm/.venv/bin/activate" >> "$shell_rc"
 done
