@@ -1,6 +1,5 @@
 __pycache__/
 *.pyc
 .venv/
-.uv-cache/
 /tmp/*
 !/tmp/.keep

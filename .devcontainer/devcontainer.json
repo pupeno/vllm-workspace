@@ -31,10 +31,7 @@
         "source=vllm-home,target=/home/vscode,type=volume"
     ],
 
-    // Keep uv's cache on the workspace filesystem so it can hardlink packages
-    // into the project virtual environment.
     "containerEnv": {
-        "UV_CACHE_DIR": "${containerWorkspaceFolder}/.uv-cache",
         "CUDA_DEVICE_ORDER": "PCI_BUS_ID"
     },
 
