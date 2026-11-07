@@ -1,22 +1,22 @@
 {
     "name": "vllm",
-    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+    "image": "mcr.microsoft.com/devcontainers/base:3-ubuntu26.04",
 
     "features": {
         // Install node.
         "ghcr.io/devcontainers/features/node:1": { "version": "lts" },
         // Install the GitHub CLI.
         "ghcr.io/devcontainers/features/github-cli:1": {},
-        // Match the CUDA version used by vLLM's current development wheels.
+        // CUDA 13.2 is compatible with glibc 2.43 and matches PyTorch.
         "ghcr.io/devcontainers/features/nvidia-cuda:3": {
             "installToolkit": true,
-            "cudaVersion": "13.0",
+            "cudaVersion": "13.2",
             "installCudnn": true,
             "installCudnnDev": true
         }
     },
 
-    // Fixes the hostname, exposes the host GPU(s), and gives PyTorch enough
+    // Sets the hostname, exposes the host GPU(s), and gives PyTorch enough
     // shared memory for multiprocessing and tensor-parallel workloads.
     "runArgs": [
         "--hostname", "vllm",

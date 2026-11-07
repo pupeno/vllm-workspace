@@ -34,11 +34,19 @@ cd /workspaces/vllm/vllm
 vllm serve <model-name>
 ```
 
-Install the CUDA test dependencies when you need to run vLLM's test suite:
+Refresh lint and CUDA test dependencies after updating the source checkout:
+
+**Setup (once per shell):**
 
 ```bash
 cd /workspaces/vllm/vllm
-uv pip install -r requirements/test/cuda.in
+source .venv/bin/activate
+```
+
+**Run (each time):**
+
+```bash
+uv pip install -r requirements/lint.txt -r requirements/test/cuda.in --torch-backend=auto
 ```
 
 Run a specific test:

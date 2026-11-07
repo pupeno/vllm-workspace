@@ -38,8 +38,8 @@ uv venv --allow-existing --python 3.12 --seed --managed-python
 source .venv/bin/activate
 VLLM_USE_PRECOMPILED=1 uv pip install -e . --torch-backend=auto
 
-echo "==> Installing vLLM's lint dependencies"
-uv pip install -r requirements/lint.txt
+echo "==> Installing vLLM's lint and CUDA test dependencies"
+uv pip install -r requirements/lint.txt -r requirements/test/cuda.in --torch-backend=auto
 pre-commit install
 
 echo "==> Configuring the development environment"
